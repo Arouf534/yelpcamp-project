@@ -1,0 +1,3 @@
+# yelpcamp-project
+
+in this file you have to install package json folders according to package.json file.. then you will be able to run the app.js file...
