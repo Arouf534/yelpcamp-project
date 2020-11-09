@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+
+
+<div class="container">
+
+
+
+    <div class="jumbotron">
+        <img src="<%= user.image %>" style="float: right;width: 15%;">
+        <h1 class="display-4 text-capitalize font-weight-normal"><%=user.name %></h1>
+        <div>
+            <h1>discription</h1>
+            <p class="lead"><%= user.discr %></p>
+        </div>
+        
+        <hr class="my-4">
+
+        <form action="/dashboard/campgrounds" method="POST" class="d-flex flex-column mt-3">
+            <div class="mx-auto w-100">
+                <h1 style="margin: 25px;" class="">Add campground</h1>
+                <input type="text" placeholder="name" name="name" class="form-control m-3 ml-4">
+                <input type="text" placeholder="image" name="image" class="form-control m-3 ml-4">
+                <button class="btn btn-primary w-50 ml-4 mt-0">submit</button>        
+            </div>
+        
+        </form>
+    </div>
+
+    <div class="row">
+    <% if(user.campground.length != 0){ %>
+
+    <% user.campground.forEach(function(camp){ %>
+
+        <div class="card col-sm-6 col-md-4" style="width: 18rem; float: left;">
+            <img class="card-img-top" style="height: 280px;" src=<%= camp.image %> >
+            <div class="card-body">
+            <h5 class="card-title"><%= camp.name  %></h5>
+            <a class="btn btn-primary btn-lg" href="/dashboard/campgrounds/<%= camp._id %>" role="button">More Info</a>
+            </div>
+        </div>
+        
+    <% })  %>
+    <% } else{ %>
+    <h2>no campground</h2>
+    <% } %>
+    </div>
+</div>
+
+
+<%- include('partials/footer') %>
+

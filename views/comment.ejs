@@ -1,0 +1,17 @@
+<%- include("partials/header") %>
+
+
+
+<form action="/campgrounds/<%= id %>/comment" method="POST" class="d-flex flex-column mt-3">
+    <div class="mx-auto w-50">
+        <h1 style="margin: 25px;" class="">Add comment</h1>
+        <textarea name="content" cols="30" rows="10" class="form-control m-3 ml-4"></textarea>
+        <button class="btn btn-primary w-50 ml-4 mt-0">submit</button>
+        <!-- <button class="btn btn-primary w-25 ml-4 mt-0">Go back</button> -->
+        <a class="btn btn-primary w-25 ml-4 mt-0" href="/campgrounds/<%= id %>" role="button">Go back</a>
+
+    </div>
+
+</form>
+
+<%- include('partials/footer') %>

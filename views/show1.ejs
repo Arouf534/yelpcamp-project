@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+<div class="container">
+<h1><%= campground.name  %></h1>
+<div><p>posted by- <strong><%= campground.user %></strong></p></div>
+<img src="<%= campground.image %>">
+<a class="btn btn-primary btn-lg" href="/campgrounds" role="button">campgrounds</a>
+
+<% if(campground.post.length == 0){  %>
+    <h3>No comment</h3>
+    
+<% } else{ %>
+    <h3>comments are</h3>
+<% for(var i=0; i < campground.post.length ; i++ ){%>
+    <div class="card w-75">
+        <div class="card-body">
+          <h5 class="card-title"><%= campground.post[i].name  %>-</h5>
+          <p class="card-text"><%= campground.post[i].content%></p>
+        </div>
+    </div>
+    <% } %>
+<% } %>
+
+<form action="/campgrounds/<%= campground._id %>/comment" method="POST" class="d-flex flex-column mt-3">
+    <div class="mx-auto w-50">
+        <h1 style="margin: 25px;" class="">Add comment</h1>
+        <textarea name="content" cols="30" rows="10" class="form-control m-3 ml-4"></textarea>
+        <button class="btn btn-primary w-50 ml-4 mt-0">submit</button>
+        <a class="btn btn-primary w-25 ml-4 mt-0" href="/campgrounds/<%= campground._id %>" role="button">Go back</a>
+
+    </div>
+
+</form>
+</div>
+
+
+<%- include('partials/footer') %>

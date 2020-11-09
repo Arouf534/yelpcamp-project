@@ -1,0 +1,18 @@
+<%- include("partials/header") %>
+
+
+
+<form action="/dashboard/campgrounds" method="POST" class="d-flex flex-column mt-3">
+    <div class="mx-auto w-50">
+        <h1 style="margin: 25px;" class="">Add campgroundt</h1>
+        <input type="text" placeholder="name" name="name" class="form-control m-3 ml-4">
+        <input type="text" placeholder="image" name="image" class="form-control m-3 ml-4">
+        <button class="btn btn-primary w-50 ml-4 mt-0">submit</button>
+        <!-- <button class="btn btn-primary w-25 ml-4 mt-0">Go back</button> -->
+        <a class="btn btn-primary w-25 ml-4 mt-0" href="/dashboard" role="button">Go back</a>
+
+    </div>
+
+</form>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,52 @@
+<h1>well come to dashboars: <%= user.name  %> </h1>
+<h1>Your profile</h1>
+
+<img src="<%= user.image %>">
+<h3><%=user.discr %></h3>
+<h3>Your email: <%= user.email %></h3>
+
+<h3>////////////////////////////////////////</h3>
+
+<% if(user.campground.length!=0){ %>
+    <%    user.comment.forEach(comnt => {  %>
+    <li>
+        <p><%= comnt.name %> - <%=  comnt.body %></p>
+    </li>
+            
+    <%    })  %>
+<%    } else{ %>
+            <h2>no comment</h2>
+<%    }  %>
+
+<h3>////////////////////////////////////////</h3>
+
+
+
+<a href="dashboard/explore">explore</a>
+<h2>now you are logged in</h2>
+<p><a href="/logout">logout</a></p>
+
+
+
+
+
+<a class="btn btn-primary btn-lg" href="/dashboard/campgrounds/new" role="button">AddCamp</a>
+        <a class="btn btn-primary btn-lg" href="/" role="button">Back</a>
+                <a class="btn btn-primary w-25 ml-4 mt-0" href="/dashboard" role="button">Go back</a>
+                <!-- <button class="btn btn-primary w-25 ml-4 mt-0">Go back</button> -->
+<a class="btn btn-primary w-25 ml-4 mt-0" href="/campgrounds/<%= campground._id %>" role="button">Go back</a>
+
+
+
+<form action="/register" method="POST">
+    <input type="text" name="name" placeholder="name">
+    <input type="text" name="image" placeholder="image">
+    <input type="text" name="username" placeholder="username">
+    <input type="text" name="email" placeholder="email">
+    <input type="text" name="password" placeholder="password">
+    <textarea name="discr" id="" cols="30" rows="10"></textarea>
+    <button>submit</button>
+</form>
+
+<a class="btn btn-primary btn-lg" href="/campgrounds/<%= campground._id %>/comment" role="button">Add comment</a>
+<a class="btn btn-primary btn-lg" href="/dashboard" role="button">my campgrounds</a>
